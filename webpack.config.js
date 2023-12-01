@@ -9,6 +9,7 @@ module.exports = {
 		library: 'MediaWidget',
 		libraryTarget: "umd",
 		umdNamedDefine: true,
+		publicPath: '/',
 	},
 	module: {
 		rules: [
@@ -31,6 +32,7 @@ module.exports = {
 		}),
 	],
 	devServer: {
-		historyApiFallback: true
+		historyApiFallback: true,
+		webSocketServer: false,
 	},
 };

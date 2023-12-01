@@ -1,17 +1,17 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import App from './App';
 import { MediaProvider } from './context/MediaContext';
 
-const widgetName = 'MyMediaWidget';
+const widgetName = 'MediaWidget';
 
 const Widget = {
     init: (container, config) => {
-        ReactDOM.render(
+        const root = ReactDOM.createRoot(container);
+        root.render(
             <MediaProvider>
-                <App />
-            </MediaProvider>,
-            container
+                <App config={config} />
+            </MediaProvider>
         );
     },
 };

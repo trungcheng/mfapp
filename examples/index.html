@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Test React Context Widgets</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="http://127.0.0.1:7777/media-widget.js"></script>
+</head>
+
+<body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+
+    <h1>Test React Context Widgets</h1>
+    <button id="widget-generate" class="test-button">Generate</button>
+    <div id="widget-wrapper"></div>
+
+    <script>
+        $('#widget-generate').off('click').on('click', function() {
+            MediaWidget.default.init(
+                document.getElementById('widget-wrapper'), 
+                {
+                    module: 'Widget1'
+                }
+            );
+        });
+    </script>
+</body>
+</html>

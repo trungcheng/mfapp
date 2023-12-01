@@ -1,24 +1,21 @@
 import React from 'react';
-import Widget1 from './modules/widget-1';
-import Widget2 from './modules/widget-2';
-import { useMediaConfig } from './context/MediaContext';
+import Widget1 from './modules/Widget1';
+import Widget2 from './modules/Widget2';
 
 import './App.css';
 
-const App = () => {
-    const { config } = useMediaConfig();
+const components = {
+    Widget1,
+    Widget2
+}
 
+const App = (props) => {
+    const { config } = props;
+    const DynamicComponent = components[config.module];
+    
     return (
         <div className="app">
-            <h1>Media Widget</h1>
-            <div>
-                <h2>Widget1</h2>
-                <Widget1 />
-            </div>
-            <div>
-                <h2>Widget2</h2>
-                <Widget2 />
-            </div>
+            <DynamicComponent />
         </div>
     );
 };

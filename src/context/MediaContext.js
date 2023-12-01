@@ -4,7 +4,7 @@ const MediaContext = createContext();
 
 export const MediaProvider = ({ children }) => {
     const [config, setConfig] = useState({
-        module: 'WidgetA'
+        module: 'Widget1'
     });
 
     const updateConfig = (newConfig) => {
