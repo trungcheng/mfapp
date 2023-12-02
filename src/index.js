@@ -1,22 +1,37 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import { MediaProvider } from './context/MediaContext';
-
-const widgetName = 'MediaWidget';
+import { MediaProvider } from '@context/MediaContext';
+import Dialog from '@ui/dialog';
 
 const Widget = {
     init: (container, config) => {
-        const root = ReactDOM.createRoot(container);
-        root.render(
-            <MediaProvider>
-                <App config={config} />
-            </MediaProvider>
-        );
-    },
-};
+        if (container) {
+            const root = ReactDOM.createRoot(container);
 
-// Assign the widget to the dynamically determined global variable name
-window[widgetName] = Widget;
+            root.render(
+                <MediaProvider>
+                    <App config={config} />
+                </MediaProvider>
+            );
+        } else {
+            const dialogEl = document.createElement('div');
+	        document.body.appendChild(dialogEl);
+
+            const root = ReactDOM.createRoot(dialogEl);
+
+            root.render(
+                <MediaProvider>
+                    <Dialog 
+                        showModal={true} 
+                        onClose={() => root.unmount(dialogEl)}
+                    >
+                        <App config={config} />
+                    </Dialog>
+                </MediaProvider>
+            );
+        }
+    }
+};
 
 export default Widget;

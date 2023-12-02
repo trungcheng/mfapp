@@ -11,6 +11,14 @@ module.exports = {
 		umdNamedDefine: true,
 		publicPath: '/',
 	},
+	resolve: {
+        extensions: ['*', '.js', '.jsx'],
+        alias: {
+            '@context': path.resolve(__dirname, './src/context'),
+            '@modules': path.resolve(__dirname, './src/modules'),
+            '@ui': path.resolve(__dirname, './src/ui'),
+        }
+    },
 	module: {
 		rules: [
 			{
