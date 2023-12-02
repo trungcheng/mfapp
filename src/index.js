@@ -4,6 +4,8 @@ import App from './App';
 import { MediaProvider } from '@context/MediaContext';
 import Dialog from '@ui/dialog';
 
+import '@styles/global.scss';
+
 const Widget = {
     init: (container, config) => {
         if (container) {

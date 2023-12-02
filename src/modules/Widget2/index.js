@@ -1,9 +1,9 @@
 import React from 'react';
-import './index.css';
+import styles from './index.module.scss';
 
 const Widget2 = () => {
     return (
-        <div>
+        <div className={styles.widget2}>
             <h2>Widget 2</h2>
         </div>
     );

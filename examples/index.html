@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Test React Context Widgets</title>
+    <title>React Context Widgets</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" />
 
@@ -25,12 +25,11 @@
 </head>
 
 <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
     <div class="container">
-        <h1>Test React Context Widgets</h1>
+        <h1>React Context Widgets</h1>
 
-        <button id="widget-dom-generate" class="btn btn-primary">Launch with DOM container</button>
-        <button id="widget-popup-generate" class="btn btn-success">Launch with dialog</button>
+        <button id="widget-dom-generate" class="btn btn-primary">Launch into DOM container</button>
+        <button id="widget-popup-generate" class="btn btn-success">Launch into dialog</button>
 
         <div id="widget-wrapper"></div>
     </div>
@@ -49,7 +48,7 @@
             MediaWidget.default.init(
                 null, 
                 {
-                    module: 'Widget1'
+                    module: 'Widget2'
                 }
             );
         });

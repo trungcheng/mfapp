@@ -1,0 +1,33 @@
+@import "./variables";
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+    font-family: $default-font;
+    color: $font-color;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+input,
+textarea,
+select,
+button {
+    font-family: $default-font;
+}
+
+img {
+    image-rendering: -webkit-optimize-contrast;
+}
+
+.main-app {
+    color: black;
+}

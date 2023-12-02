@@ -2,7 +2,7 @@ import React from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 
-import './index.css';
+import styles from './index.module.scss';
 
 const Dialog = (props) => {
     const { children, showModal } = props;

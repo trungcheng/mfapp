@@ -12,25 +12,53 @@ module.exports = {
 		publicPath: '/',
 	},
 	resolve: {
-        extensions: ['*', '.js', '.jsx'],
+        extensions: ['.*', '.js', '.jsx'],
         alias: {
             '@context': path.resolve(__dirname, './src/context'),
             '@modules': path.resolve(__dirname, './src/modules'),
             '@ui': path.resolve(__dirname, './src/ui'),
+            '@styles': path.resolve(__dirname, './src/styles'),
         }
     },
 	module: {
 		rules: [
 			{
-				test: /\.js$/,
+				test: /\.(js|jsx)$/,
 				exclude: /node_modules/,
 				use: {
 					loader: "babel-loader",
 				},
 			},
 			{
-				test: /\.css$/,
-				use: ["style-loader", "css-loader"],
+                test: /\.module\.s(a|c)ss$/,
+                use: [
+					'style-loader',
+                    'css-loader',
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            sassOptions: {
+                                outputStyle: 'compressed'
+                            }
+                        }
+                    }
+                ],
+            },
+			{
+				test: /\.(s(a|c)ss)$/,
+                exclude: /\.module.(s(a|c)ss)$/,
+				use: [
+					'style-loader',
+                    'css-loader',
+					{
+                        loader: 'sass-loader',
+                        options: {
+                            sassOptions: {
+                                outputStyle: 'compressed'
+                            }
+                        }
+                    }
+				],
 			},
 		],
 	},
