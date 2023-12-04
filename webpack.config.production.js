@@ -1,5 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 module.exports = {
 	entry: "./src/index.js",
@@ -32,11 +34,17 @@ module.exports = {
 			{
                 test: /\.module\.s(a|c)ss$/,
                 use: [
-					'style-loader',
-                    'css-loader',
+					MiniCssExtractPlugin.loader,
+                    { 
+						loader: "css-loader", 
+						options: { 
+							sourceMap: true 
+						} 
+					},
                     {
                         loader: 'sass-loader',
                         options: {
+							sourceMap: true,
                             sassOptions: {
                                 outputStyle: 'compressed'
                             }
@@ -48,11 +56,17 @@ module.exports = {
 				test: /\.(s(a|c)ss)$/,
                 exclude: /\.module.(s(a|c)ss)$/,
 				use: [
-					'style-loader',
-                    'css-loader',
+					MiniCssExtractPlugin.loader,
+                    { 
+						loader: "css-loader", 
+						options: { 
+							sourceMap: true 
+						} 
+					},
 					{
                         loader: 'sass-loader',
                         options: {
+							sourceMap: true,
                             sassOptions: {
                                 outputStyle: 'compressed'
                             }
@@ -62,13 +76,17 @@ module.exports = {
 			},
 		],
 	},
+	optimization: {
+		minimizer: [
+		  	new CssMinimizerPlugin(),
+		],
+	},
 	plugins: [
 		new HtmlWebpackPlugin({
 			template: "./public/index.html",
 		}),
+		new MiniCssExtractPlugin({
+			filename: 'styles.css',
+		}),
 	],
-	devServer: {
-		historyApiFallback: true,
-		webSocketServer: false,
-	},
 };
