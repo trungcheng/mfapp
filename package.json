@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "scripts": {
         "start": "webpack-dev-server --mode=development --config webpack.config.dev.js --port 7777 --progress --hot",
-        "build": "webpack --mode=production --config webpack.config.production.js"
+        "build": "webpack --mode=production --config webpack.config.prod.js"
     },
     "dependencies": {
         "react": "^18.2.0",
