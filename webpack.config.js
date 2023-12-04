@@ -6,7 +6,7 @@ module.exports = {
 	output: {
 		filename: "media-widget.js",
 		path: path.resolve(__dirname, "dist"),
-		library: 'MediaWidget',
+		library: 'MyMediaWidget',
 		libraryTarget: "umd",
 		umdNamedDefine: true,
 		publicPath: '/',

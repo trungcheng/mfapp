@@ -36,21 +36,15 @@
 
     <script>
         $('#widget-dom-generate').off('click').on('click', function() {
-            MediaWidget.default.init(
-                document.getElementById('widget-wrapper'), 
-                {
-                    module: 'Widget1'
-                }
-            );
+            MediaWidget.init(document.getElementById('widget-wrapper'), {
+                module: 'Widget1'
+            });
         });
 
         $('#widget-popup-generate').off('click').on('click', function() {
-            MediaWidget.default.init(
-                null, 
-                {
-                    module: 'Widget2'
-                }
-            );
+            MediaWidget.init(null, {
+                module: 'Widget2'
+            });
         });
     </script>
 </body>

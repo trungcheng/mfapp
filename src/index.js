@@ -36,4 +36,6 @@ const Widget = {
     }
 };
 
+window['MediaWidget'] = Widget;
+
 export default Widget;
