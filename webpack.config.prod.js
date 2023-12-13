@@ -11,7 +11,7 @@ module.exports = {
 		library: 'MyMediaWidget',
 		libraryTarget: "umd",
 		umdNamedDefine: true,
-		publicPath: '/',
+		publicPath: '/dist/',
 	},
 	resolve: {
         extensions: ['.*', '.js', '.jsx'],
@@ -32,14 +32,17 @@ module.exports = {
 				},
 			},
 			{
-                test: /\.module\.s(a|c)ss$/,
+                test: /\.module\.(sa|sc|c)ss$/,
                 use: [
 					MiniCssExtractPlugin.loader,
-                    { 
-						loader: "css-loader", 
-						options: { 
-							sourceMap: true 
-						} 
+                    {
+						loader: 'css-loader',
+						options: {
+							sourceMap: true,
+							modules: {
+								localIdentName: `m__[local]`
+							}
+						}
 					},
                     {
                         loader: 'sass-loader',
@@ -53,15 +56,18 @@ module.exports = {
                 ],
             },
 			{
-				test: /\.(s(a|c)ss)$/,
-                exclude: /\.module.(s(a|c)ss)$/,
+				test: /\.(sa|sc|c)ss$/,
+                exclude: /\.module\.(sa|sc|c)ss$/,
 				use: [
 					MiniCssExtractPlugin.loader,
-                    { 
-						loader: "css-loader", 
-						options: { 
-							sourceMap: true 
-						} 
+                    {
+						loader: 'css-loader',
+						options: {
+							sourceMap: true,
+							modules: {
+								localIdentName: `m__[local]`
+							}
+						}
 					},
 					{
                         loader: 'sass-loader',

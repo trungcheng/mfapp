@@ -9,7 +9,7 @@ module.exports = {
 		library: 'MyMediaWidget',
 		libraryTarget: "umd",
 		umdNamedDefine: true,
-		publicPath: '/',
+		publicPath: '/dist/',
 	},
 	resolve: {
         extensions: ['.*', '.js', '.jsx'],
@@ -31,19 +31,33 @@ module.exports = {
 				},
 			},
 			{
-                test: /\.module\.s(a|c)ss$/,
+                test: /\.module\.(sa|sc|c)ss$/,
                 use: [
 					'style-loader',
-					'css-loader',
+					{
+						loader: 'css-loader',
+						options: {
+							modules: {
+								localIdentName: `m__[local]`
+							}
+						}
+					},
 					'sass-loader',
                 ],
             },
 			{
-				test: /\.(s(a|c)ss)$/,
-                exclude: /\.module.(s(a|c)ss)$/,
+				test: /\.(sa|sc|c)ss$/,
+                exclude: /\.module\.(sa|sc|c)ss$/,
 				use: [
 					'style-loader',
-					'css-loader',
+					{
+						loader: 'css-loader',
+						options: {
+							modules: {
+								localIdentName: `m__[local]`
+							}
+						}
+					},
 					'sass-loader',
                 ],
 			},
@@ -58,6 +72,14 @@ module.exports = {
 		}),
 	],
 	devServer: {
+		host: '127.0.0.1',
+		port: 7777,
+		hot: true,
+		headers: {
+			'Access-Control-Allow-Origin': '*'
+		},
+		compress: false,
+		open: false,
 		historyApiFallback: true,
 		webSocketServer: false,
 	},
