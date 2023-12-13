@@ -1,0 +1,289 @@
+{
+	"env": {
+		"es6": true,
+		"node": true,
+		"commonjs": true
+	},
+	"extends": [
+		"eslint:recommended"
+	],
+	"parser": "babel-eslint",
+	"parserOptions": {
+		"ecmaVersion": 2017,
+		"sourceType": "module",
+		"ecmaFeatures": {
+			"experimentalObjectRestSpread": true
+		},
+		"allowImportExportEverywhere": true
+	},
+	"globals": {
+		"document": true,
+		"window": true,
+		"core": true,
+		"coreConfig": true,
+		"__": true,
+		"Promise": true,
+		"MutationObserver": true,
+		"DOMParser": true,
+		"Image": true,
+		"FileReader": true,
+		"navigator": true,
+		"playerInitScript": true,
+		"XMLSerializer": true,
+		"$": true,
+		"ResizeObserver": true,
+		"FormData": true,
+		"atob": true,
+		"Blob": true
+	},
+	"rules": {
+		"indent": [
+			"error",
+			"tab",
+			{
+				"SwitchCase": 1
+			}
+		],
+		"linebreak-style": [
+			"error",
+			"windows"
+		],
+		"quotes": [
+			"error",
+			"single"
+		],
+		"semi": [
+			"error",
+			"always"
+		],
+		"strict": "error",
+		"no-console": [
+			"error",
+			{
+				"allow": [
+					"log",
+					"debug",
+					"info",
+					"warn",
+					"error",
+					"fatal"
+				]
+			}
+		],
+		"no-underscore-dangle": [
+			"error",
+			{
+				"allow": [
+					"_source"
+				],
+				"allowAfterThis": true,
+				"allowAfterSuper": true
+			}
+		],
+		"no-tabs": [
+			"error",
+			{
+				"allowIndentationTabs": true
+			}
+		],
+		"array-bracket-newline": [
+			"error",
+			"consistent"
+		],
+		"no-param-reassign": [
+			"error",
+			{
+				"props": false
+			}
+		],
+		"no-plusplus": [
+			"error",
+			{
+				"allowForLoopAfterthoughts": true
+			}
+		],
+		"no-var": "error",
+		"new-cap": [
+			"error",
+			{
+				"newIsCap": true,
+				"capIsNew": true,
+				"properties": true
+			}
+		],
+		"no-new": "error",
+		"no-new-func": "error",
+		"no-new-wrappers": "error",
+		"no-async-promise-executor": "error",
+		"no-await-in-loop": "error",
+		"no-restricted-syntax": [
+			"error",
+			"WithStatement",
+			{
+				"selector": "CallExpression[callee.name='setTimeout'][arguments.length!=2]",
+				"message": "setTimeout must always be invoked with two arguments."
+			}
+		],
+		"valid-jsdoc": [
+			"error",
+			{
+				"prefer": {
+					"arg": "param",
+					"argument": "param",
+					"class": "constructor",
+					"return": "returns",
+					"virtual": "abstract"
+				},
+				"preferType": {
+					"boolean": "Boolean",
+					"number": "Number",
+					"object": "Object",
+					"string": "String"
+				}
+			}
+		],
+		"accessor-pairs": [
+			"error",
+			{
+				"setWithoutGet": true,
+				"getWithoutSet": false
+			}
+		],
+		"array-callback-return": [
+			"error",
+			{
+				"allowImplicit": true
+			}
+		],
+		"class-methods-use-this": "off",
+		"consistent-return": [
+			"error",
+			{
+				"treatUndefinedAsUnspecified": true
+			}
+		],
+		"require-await": "error",
+		"prefer-promise-reject-errors": [
+			"error",
+			{
+				"allowEmptyReject": true
+			}
+		],
+		"prefer-const": [
+			"error",
+			{
+				"destructuring": "all",
+				"ignoreReadBeforeAssign": true
+			}
+		],
+		"prefer-numeric-literals": "off",
+		"prefer-spread": "error",
+		"prefer-rest-params": "error",
+		"prefer-template": "error",
+		"symbol-description": "error",
+		"vars-on-top": "error",
+		"no-delete-var": "error",
+		"no-label-var": "error",
+		"no-undefined": "error",
+		"no-use-before-define": [
+			"error",
+			{
+				"functions": true,
+				"classes": true
+			}
+		],
+		"no-spaced-func": "error",
+		"no-buffer-constructor": "error",
+		"lines-between-class-members": [
+			"error",
+			"always",
+			{
+				"exceptAfterSingleLine": true
+			}
+		],
+		"max-depth": [
+			"error",
+			4
+		],
+		"max-lines-per-function": [
+			"error",
+			{
+				"max": 90,
+				"skipBlankLines": true,
+				"skipComments": true,
+				"IIFEs": true
+			}
+		],
+		"max-nested-callbacks": [
+			"error",
+			3
+		],
+		"max-params": [
+			"error",
+			{
+				"max": 5
+			}
+		],
+		"max-len": [
+			"error",
+			{
+				"code": 80,
+				"tabWidth": 4,
+				"ignoreComments": true,
+				"ignoreTrailingComments": true,
+				"ignoreUrls": true,
+				"ignoreStrings": true,
+				"ignoreTemplateLiterals": true,
+				"ignoreRegExpLiterals": true
+			}
+		],
+		"newline-per-chained-call": [
+			"error",
+			{
+				"ignoreChainWithDepth": 2
+			}
+		],
+		"arrow-body-style": [
+			"error",
+			"as-needed",
+			{
+				"requireReturnForObjectLiteral": true
+			}
+		],
+		"constructor-super": "error",
+		"object-shorthand": [
+			"error",
+			"always",
+			{
+				"avoidQuotes": true,
+				"avoidExplicitReturnArrows": true
+			}
+		],
+		"no-new-require": "error",
+		"no-confusing-arrow": [
+			"error",
+			{
+				"allowParens": true
+			}
+		],
+		"no-undef": [
+			"error",
+			{
+				"typeof": true
+			}
+		],
+		"no-undef-init": "error",
+		"global-require": "warn",
+		"no-global-assign": [
+			"error",
+			{
+				"exceptions": [
+					"Object"
+				]
+			}
+		]
+	},
+	"plugins": [
+		// "babel"
+	]
+}

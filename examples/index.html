@@ -1,51 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>React Context Widgets</title>
+	<title>TEST MEDIA WIDGETS</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" />
+	<link rel="icon" href="/favicon.ico" />
+	<link rel="stylesheet" href="css/style.css">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.min.js"></script>
-    <script src="http://127.0.0.1:7777/dist/media-widget.js"></script>
-
-    <style>
-        #widget-wrapper {
-            width: 100%;
-            height: 300px;
-            border: 1px solid #000;
-            border-radius: 10px;
-            margin-top: 30px;
-            padding: 15px;
-        }
-    </style>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<script src="http://127.0.0.1:7777/dist/media-widget.js"></script>
 </head>
 
 <body>
-    <div class="container">
-        <h1>React Context Widgets</h1>
+	<div class="test-block" id="function">
+		<h3 class="test-title">Widgets</h3>
 
-        <button id="widget-dom-generate" class="btn btn-primary">Launch into DOM container</button>
-        <button id="widget-popup-generate" class="btn btn-success">Launch into dialog</button>
+		<button id="image-collage" class="test-button">Image Collage</button>
+	</div>
 
-        <div id="widget-wrapper"></div>
-    </div>
+	<script>
+		var urlToken = 'https://dummyjson.com/auth/login';
+		var username = 'kminchelle';
+		var password = '0lelplR';
+		var channelId = '';
 
-    <script>
-        $('#widget-dom-generate').off('click').on('click', function() {
-            MediaWidget.init(document.getElementById('widget-wrapper'), {
-                module: 'Widget1'
+		var getTokenFunction = function(callback) {
+			$.ajax({
+                type: 'POST',
+				url: urlToken,
+                data: {
+					username,
+					password,
+                },
+                dataType: "json",
+                success: function (res, err) {
+                    if (typeof (res) === 'string') res = JSON.parse(res);
+                    var data = res;
+
+					if (typeof (data) === 'string') data = JSON.parse(data);
+
+                    callback(null, data.token);
+				},
+				error: function (res) {
+					callback(new Error(res.responseJSON.error.message));
+				}
             });
-        });
+		}
 
-        $('#widget-popup-generate').off('click').on('click', function() {
-            MediaWidget.init(null, {
-                module: 'Widget2'
-            });
-        });
-    </script>
+		// Image collage
+		$('#image-collage').off('click').on('click', function() {
+			MediaWidget.init({
+				locale: 'vi',
+				plugins: {
+					name: 'media',
+					options: {
+						getTokenFunction: getTokenFunction
+					},
+					methods: {
+						name: 'imageCollage',
+						options: {
+							background: '#fff',
+							layout: 1,
+							images: [
+								'https://10267303661395597.lotuscdn.vn/121209157016621056/2019/11/29/tong-hop-nhung-hinh-anh-dep-ve-bien-36-15749954136271802005480.jpg',
+								'https://mps-dev.lotuscdn.vn/122301472657379328/2020/2/12/19185en1-1581502672553154550081.jpg'
+							],
+							texts: [],
+							cancel: function() {
+								console.log('cancel');
+							},
+							callback: function(image) {
+								console.log('callback =>', image);
+							}
+						}
+					}
+				}
+			});
+		});
+	</script>
 </body>
 </html>

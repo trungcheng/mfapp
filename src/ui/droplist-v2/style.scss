@@ -1,0 +1,74 @@
+.ui-droplist-v2 {
+	padding-top: 1px;
+	color: #999;
+
+	.droplist-item {
+		p {
+			background-color: #111;
+			padding: 7px 10px;
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			flex-wrap: wrap;
+			height: 25px;
+    		line-height: 0px;
+
+			&.selected {
+				background-color: #333;
+			}
+
+			&:hover {
+				background-color: #333;
+				color: #fff;
+
+				& > span {
+					color: #fff !important;
+				}
+			}
+
+			&.is-bold {
+				font-weight: bold
+			}
+
+			&.no-select {
+				pointer-events: none;
+			}
+
+			&.disabled {
+				pointer-events: none;
+				color: #999;
+			}
+
+			span.droplist-item-label {
+				width: 100%
+			}
+
+			span.droplist-item-desc {
+				width: 100%;
+				color: #999;
+				font-size: 11px;
+				margin-top: 5px;
+			}
+		}
+
+		&.disabled {
+			pointer-events: none;
+			color: #999;
+		}
+	}
+
+	.droplist-empty {
+		padding: 10px;
+	}
+
+	.droplist-loading {
+		padding: 10px;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		white-space: nowrap;
+
+		i {
+			margin-right: 5px;
+		}
+	}
+}

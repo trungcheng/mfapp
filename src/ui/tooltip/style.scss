@@ -1,0 +1,51 @@
+$color: rgba(0,0,0,0.75);
+
+.ui-tooltip {
+	position: fixed;
+	visibility: hidden;
+	background-color: $color;
+    padding: 7px 10px !important;
+    color: #fff !important;
+    border-radius: 5px;
+	font-size: 14px;
+	z-index: 99999999999;
+	text-align: center;
+	font-weight: normal !important;
+	text-transform: none !important;
+
+	&::before {
+		content: "";
+		border-width: 5px;
+		border-style: solid;
+		border-color: transparent;
+		z-index: 99999999999;
+	}
+	
+	&[data-position=right]::before {
+		position: absolute;
+		top: calc(50% - 5px);
+		left: -10px;
+		border-right-color: $color;
+	}
+
+	&[data-position=left]::before {
+		position: absolute;
+		top: calc(50% - 5px);
+		right: -10px;
+		border-left-color: $color;
+	}
+
+	&[data-position=bottom]::before {
+		position: absolute;
+		top: -10px;
+		left: calc(50% - 5px);
+		border-bottom-color: $color;
+	}
+
+	&[data-position=top]::before {
+		position: absolute;
+		top: 100%;
+		left: calc(50% - 5px);
+		border-top-color: $color;
+	}
+}

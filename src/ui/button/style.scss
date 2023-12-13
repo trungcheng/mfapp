@@ -1,0 +1,112 @@
+@mixin button-type($bgColor, $borderColor, $textColor) {
+	background: $bgColor;
+	border: 1px solid $borderColor;
+	color: $textColor;
+
+	&:hover {
+		background: darken($bgColor, 5%);
+	}
+
+	&.is-outline {
+		background: #fff;
+		border: 1px solid $borderColor;
+		color: $bgColor;
+
+		&:hover {
+			background: #f0f0f0;
+		}
+	}
+}
+
+.ui-button {
+	outline: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	cursor: pointer;
+	text-align: center;
+	transition: .1s;
+	border-radius: 3px;
+	border: 1px solid transparent;
+	text-overflow: ellipsis;
+	border-radius: 1000px;
+
+	.button-icon {
+		margin-right: 10px;
+	}
+
+	&.button-default {
+		@include button-type($colorDefault, $colorDefault, #fff);
+
+		&.is-outline {
+			color: $colorDefault;
+		}
+	}
+
+	&.button-primary {
+		@include button-type($colorPrimary, $colorPrimary, #fff);
+	}
+
+	&.button-success {
+		@include button-type($colorSuccess, $colorSuccess, #fff);
+	}
+
+	&.button-info {
+		@include button-type($colorInfo, $colorInfo, #fff);
+	}
+
+	&.button-warning {
+		@include button-type($colorWarning, $colorWarning, #fff);
+	}
+
+	&.button-danger {
+		@include button-type($colorDanger, $colorDanger, #fff);
+	}
+
+	&.size-default {
+		height: 38px;
+		padding: 0 30px;
+		font-size: 14px;
+	}
+
+	&.size-medium {
+		height: 34px;
+		padding: 0 20px;
+		font-size: 14px;
+	}
+
+	&.size-small {
+		height: 30px;
+		padding: 0 15px;
+		font-size: 13px;
+	}
+
+	&.size-mini {
+		height: 26px;
+		padding: 0 15px;
+		font-size: 12px;
+	}
+
+	&.is-disabled {
+		cursor: not-allowed !important;
+		background-color: #f0f0f0 !important;
+		border: 1px solid #f0f0f0 !important;
+		color: #d0d0d0 !important;
+	}
+}
+
+.ui-button + .ui-button {
+    margin-left: 10px;
+}
+
+.ui-button-group {
+	border-radius: 1000px;
+	overflow: hidden;
+
+	.ui-button {
+		margin: 0px;
+		border-radius: 0;
+	}
+}

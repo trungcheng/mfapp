@@ -11,6 +11,9 @@
 # production
 /build
 /dist
+/stats
+.vscode/
+.idea/
 
 # misc
 .DS_Store

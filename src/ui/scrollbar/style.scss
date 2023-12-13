@@ -1,0 +1,94 @@
+$bgColorScroll: #333;
+
+$opacityScroll: 0.5;
+$opacityScrollHover: 0.65;
+$opacityScrollActive: 0.8;
+
+$sizeScroll: 7px;
+$sizeScrollHover: 10px;
+$sizeScrollActive: 10px;
+
+$radiusScroll: 5px;
+$radiusScrollHover: 10px;
+
+.ui-scrollbar {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	position: relative;
+
+	&:hover {
+		& > .scrollbar-vertical {
+			visibility: visible;
+			transition: opacity 0.5s ease;
+			opacity: $opacityScroll;
+		}
+
+		& > .scrollbar-horizontal {
+			visibility: visible;
+			transition: opacity 0.5s ease;
+			opacity: $opacityScroll;
+		}
+	}
+
+	.scrollbar-area {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+	.scrollbar-vertical {
+		background: #333;
+		opacity: 0;
+		width: $sizeScroll;
+		position: absolute;
+		top: 0;
+		right: 0;
+		transition: width 0.1s ease, visibility 0.5s ease, opacity 0.5s ease;
+		visibility: hidden;
+		border-radius: $radiusScroll;
+		margin-right: 2px;
+
+		&:hover {
+			width: $sizeScrollHover;
+			border-radius: $radiusScrollHover;
+			transition: width 0.1s ease;
+			opacity: $opacityScrollHover;
+		}
+
+		&.active {
+			visibility: visible;
+			opacity: $opacityScrollActive !important;
+			width: $sizeScrollActive;
+		}
+	}
+
+	.scrollbar-horizontal {
+		background: #333;
+		opacity: 0;
+		width: 200px;
+		height: $sizeScroll;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		transition: width 0.1s ease, visibility 0.5s ease, opacity 0.5s ease;
+		visibility: hidden;
+		border-radius: $radiusScroll;
+		margin-bottom: 2px;
+
+		&:hover {
+			height: $sizeScrollHover;
+			border-radius: $radiusScrollHover;
+			transition: height 0.1s ease;
+			opacity: $opacityScrollHover;
+		}
+
+		&.active {
+			visibility: visible;
+			opacity: $opacityScrollActive !important;
+			height: $sizeScrollActive;
+		}
+	}
+}

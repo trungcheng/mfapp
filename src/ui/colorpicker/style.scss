@@ -1,0 +1,139 @@
+@import "~@media/assets/styles/_variables.scss";
+
+.ui-color {
+	&.button-color {
+		.button-picker {
+			width: 50px;
+			height: 22px;
+			background: #fafafa;
+			border: 1px solid #ddd;
+			padding: 3px;
+			cursor: pointer;
+			outline: none;
+
+			.button-preview {
+				background: url('~@media/assets/images/backgrounds/bg_transparent.png') repeat;
+				width: 100%;
+				height: 100%;
+
+				.button-color {
+					width: 100%;
+					height: 100%;
+				}
+			}
+		}
+
+		.button-popover {
+			position: fixed;
+			z-index: 999;
+		}
+	}
+}
+
+.gradient-option-v2 {
+	width: 100%;
+
+	.gradient-type {
+		width: 100%;
+		height: 25px;
+		margin-top: 15px;
+		display: inline-flex;
+
+		.item {
+			width: 33.33%;
+			height: 25px;
+			display: -webkit-inline-box;
+			align-items: center;
+			line-height: 19px;
+
+			span {
+				font-size: 10px;
+				color: #999;
+				margin-right: -3px !important;
+			}
+
+			.horizontal {
+				width: 22px;
+				height: 22px;
+				background: linear-gradient(to right, #FFF, #000);
+				box-sizing: border-box;
+				border-radius: 4px;
+				margin-left: 8px;
+				cursor: pointer;
+			}
+
+			.vertical {
+				width: 22px;
+				height: 22px;
+				background: linear-gradient(to bottom, #FFF, #000);
+				box-sizing: border-box;
+				border-radius: 4px;
+				margin-left: 10px;
+				cursor: pointer;
+			}
+
+			.radial {
+				width: 22px;
+				height: 22px;
+				background: radial-gradient(circle at center, #FFF, #000);
+				box-sizing: border-box;
+				border-radius: 4px;
+				margin-left: 10px;
+				cursor: pointer;
+			}
+
+			& > .active {
+				border: 1.5px solid #E4E4E4;
+				box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
+			}
+		}
+	}
+
+	.gradient-palette {
+		width: 100%;
+		height: 10px;
+		border-radius: 2px;
+		margin-top: 20px;
+
+		.gradient-direction {
+			width: 17px;
+			height: 17px;
+			border-radius: 4px;
+			position: absolute;
+			top: 45px;
+			cursor: pointer;
+			border: 2px solid transparent;
+
+			&.active {
+				border: 2px solid #fff;
+			}
+		}
+
+		& > .gradient-from {
+			background: #FDD24B;
+			left: 8px;
+			border: 2px solid transparent;
+
+			i {
+				color: #999;
+				position: relative;
+				top: 6px;
+				left: 3px;
+				font-size: 11px;
+			}
+		}
+
+		& > .gradient-to {
+			background: #EB5757;
+			right: 8px;
+
+			i {
+				color: #999;
+				position: relative;
+				top: 6px;
+				left: 3px;
+				font-size: 11px;
+			}
+		}
+	}
+}

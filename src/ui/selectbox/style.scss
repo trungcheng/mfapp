@@ -1,0 +1,137 @@
+.ui-selectbox {
+	position: relative;
+	font-size: 14px;
+	color: #666666;
+
+	.selectbox-input {
+		background-color: #fff;
+		border: 1px solid #ddd;
+		border-radius: 3px;
+		display: flex;
+		position: relative;
+		overflow: hidden;
+		z-index: 2;
+		padding: 0 10px;
+		align-items: center;
+
+		img {
+			width: 30px;
+			height: 30px;
+			border-radius: 50%;
+			margin-right: 10px;
+		}
+		
+		.input-value {
+			width: 100%;
+			border: none;
+			outline: none;
+			cursor: auto;
+			display: flex;
+			align-items: center;
+
+			.placeholder {
+				color: #999;
+			}
+		}
+
+		i {
+			font-size: 14px;
+			color: #999;
+		}
+
+		.input-toogle {
+			display: flex;
+			align-items: center;
+		}
+
+		.input-remove {
+			margin-right: 10px;
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+
+			&:hover {
+				i {
+					color: #666;
+				}
+			}
+		}
+	}
+
+	.selectbox-single {
+		.input-value {
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			overflow: hidden;
+			color: #333;
+		}
+
+		input {
+			flex: 1 auto;
+			width: 0;
+			border: none;
+			outline: none;
+			padding-right: 10px;
+			cursor: auto;
+			display: flex;
+			align-items: center;
+
+			&::placeholder {
+				color: #999;
+			}
+		}
+	}
+
+	.selectbox-multiple {
+		.input-value {
+			flex-wrap: wrap;
+			// padding: 0 7px;
+
+			.value-item {
+				display: inline-flex;
+				border: 1px solid #ddd;
+				background-color: #f0f0f0;
+				border-radius: 3px;
+				padding: 3px;
+				margin: 3px;
+
+				i {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					cursor: pointer;
+					width: 20px;
+				}
+			}
+
+			.placeholder {
+				padding: 0 3px;
+			}
+		}
+
+		input {
+			outline: none;
+			border: none;
+			margin: 3px;
+			flex-grow: 1;
+
+			&::placeholder {
+				color: #999;
+			}
+		}
+	}
+
+	.selectbox-dropdown {
+		background-color: #fff;
+		position: absolute;
+		border: 1px solid #ddd;
+		top: 0;
+		left: 0;
+		z-index: 4;
+		border-bottom-left-radius: 3px;
+		border-bottom-right-radius: 3px;
+		overflow: hidden;
+		margin-bottom: 10px;
+		box-shadow: 0 2px 5px -5px #000;
+	}
+}

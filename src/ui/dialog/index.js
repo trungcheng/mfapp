@@ -1,34 +1,44 @@
-import React from 'react';
-import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button';
+import { cloneElement } from 'react';
+import { render, unmountComponentAtNode } from 'react-dom';
+import { isFunction } from 'coreutils-js';
 
-import styles from './index.module.scss';
+import Dialog from './Dialog';
+import MessageBox from './MessageBox';
+import ConfirmBox from './ConfirmBox';
+import WaitingBox from './WaitingBox';
 
-const Dialog = (props) => {
-    const { children, showModal } = props;
+function renderDialog(component, onOpen, onClose) {
+	const dialogEl = document.createElement('div');
+	const dialogConfig = {
+		onClose() {
+			unmountComponentAtNode(dialogEl);
 
-    const handleClose = () => {
-        props.onClose();
-    };
+			if (isFunction(onClose)) {
+				onClose();
+			}
+		},
+		onOpen(dialog) {
+			if (isFunction(onOpen)) {
+				onOpen(dialog);
+			}
+		}
+	};
 
-    return (
-        <Modal size="lg" show={showModal} onHide={handleClose}>
-            <Modal.Header closeButton>
-                <Modal.Title>Modal heading</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-                { children }
-            </Modal.Body>
-            <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>
-                    Close
-                </Button>
-                <Button variant="primary" onClick={handleClose}>
-                    Save Changes
-                </Button>
-            </Modal.Footer>
-        </Modal>
-    );
+	document.body.appendChild(dialogEl);
+
+	render(
+		cloneElement(
+			component,
+			dialogConfig
+		),
+		dialogEl
+	);
+}
+
+export {
+	renderDialog,
+	Dialog,
+	MessageBox,
+	ConfirmBox,
+	WaitingBox
 };
-
-export default Dialog;

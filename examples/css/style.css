@@ -1,0 +1,17 @@
+* { margin: 0; padding: 0; }
+body { font-family: tahoma; font-size: 14px; width: auto !important; height: auto !important; }
+.test-block { background: #f7f7f7 none repeat scroll 0 0; border: 1px solid #dddddd; display: block; margin: 20px; padding: 10px; text-align: left; }
+.test-title { color: #bc1900; font-size: 20px; font-weight: normal; margin: 5px; text-transform: uppercase; }
+.test-button { display: inline-block; background: #336699; color: #fff; padding: 10px 20px; cursor: pointer; border-radius: 2px; min-width: 165px; text-align: center; border: 0; margin: 5px; }
+.test-button:hover { background: #1B4571; }
+.test-result { margin-top: 10px; border: 1px solid #dddddd; }
+
+.block-flex {
+	display: flex;
+	width: 100%;
+    flex-wrap: wrap;
+}
+
+.block-flex > div {
+	flex: 1;
+}
